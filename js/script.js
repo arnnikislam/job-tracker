@@ -7,7 +7,7 @@ const allJob = document.querySelectorAll(".card");
 let totalJobCount = allJob.length;
 document.querySelector(".total-count").innerText = totalJobCount;
 
-// accessing every card data and showing on other tab
+// accessing every card data and showing on other tab using event delegation and bubbling
 document
   .querySelector(".job-cards-container")
   .addEventListener("click", function (event) {
