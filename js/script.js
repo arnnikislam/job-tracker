@@ -13,6 +13,28 @@ function updateAvailableJobsCount() {
   document.querySelector(".available-jobs").innerText = availableJobs;
 }
 
+// empty state alert
+function updateEmptyMessage(tabSelector) {
+  const tab = document.querySelector(tabSelector);
+  const cards = tab.querySelectorAll(".card");
+
+  const existingAlert = tab.querySelector(".alert");
+
+  if (cards.length === 0) {
+    if (!existingAlert) {
+      const copyAlert = document.createElement("div");
+      copyAlert.classList.add("alert");
+      copyAlert.innerHTML = document.querySelector(".alert-section").innerHTML;
+
+      tab.append(copyAlert);
+    }
+  } else {
+    if (existingAlert) {
+      existingAlert.remove();
+    }
+  }
+}
+
 // accessing every card data and showing on other tab using event delegation and bubbling
 document.querySelector("main").addEventListener("click", function (event) {
   // for interview
@@ -42,6 +64,7 @@ document.querySelector("main").addEventListener("click", function (event) {
     cardDataCopy.classList.add("card");
     cardDataCopy.innerHTML = card.innerHTML;
     document.querySelector(".interview-tab").append(cardDataCopy);
+    updateEmptyMessage(".interview-tab");
 
     //   counting
     document.querySelector(".interview-count").innerText = ++interviewCount;
@@ -77,6 +100,7 @@ document.querySelector("main").addEventListener("click", function (event) {
     cardDataCopy.classList.add("card");
     cardDataCopy.innerHTML = card.innerHTML;
     document.querySelector(".rejected-tab").append(cardDataCopy);
+    updateEmptyMessage(".rejected-tab");
 
     //   counting
     document.querySelector(".rejected-count").innerText = ++rejectedCount;
@@ -100,6 +124,7 @@ document.querySelector("main").addEventListener("click", function (event) {
     }
 
     parentCard.remove();
+    updateEmptyMessage(".interview-tab");
     //   rest total
     --totalJobCount;
     document.querySelector(".total-count").innerText = totalJobCount;
@@ -127,6 +152,7 @@ function toggleTab(tabClassName, tabBtnClassName) {
   document.querySelector(tabClassName).style.display = "block";
 }
 
+// when click on tab btn
 document.querySelector(".all-tab-btn").addEventListener("click", function () {
   toggleTab(".all-tab", ".all-tab-btn");
 });
@@ -135,30 +161,12 @@ document
   .addEventListener("click", function () {
     toggleTab(".interview-tab", ".interview-tab-btn");
 
-    if (interviewCount === 0) {
-      const interviewTab = document.querySelector(".interview-tab");
-      if (!interviewTab.querySelector(".alert")) {
-        const copyAlert = document.createElement("div");
-        copyAlert.innerHTML =
-          document.querySelector(".alert-section").innerHTML;
-        document.querySelector(".interview-tab").append(copyAlert);
-        document.querySelector(".interview-tab").style.display = "block";
-      }
-    }
+    updateEmptyMessage(".interview-tab");
   });
 document
   .querySelector(".rejected-tab-btn")
   .addEventListener("click", function () {
     toggleTab(".rejected-tab", ".rejected-tab-btn");
 
-    if (rejectedCount === 0) {
-      const rejectedTab = document.querySelector(".rejected-tab");
-      if (!rejectedTab.querySelector(".alert")) {
-        const copyAlert = document.createElement("div");
-        copyAlert.innerHTML =
-          document.querySelector(".alert-section").innerHTML;
-        document.querySelector(".rejected-tab").append(copyAlert);
-        document.querySelector(".rejected-tab").style.display = "block";
-      }
-    }
+    updateEmptyMessage(".rejected-tab");
   });
