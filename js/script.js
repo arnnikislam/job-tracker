@@ -7,72 +7,101 @@ const allJob = document.querySelectorAll(".card");
 let totalJobCount = allJob.length;
 document.querySelector(".total-count").innerText = totalJobCount;
 
+// available jobs count
+function updateAvailableJobsCount() {
+  const availableJobs = totalJobCount - interviewCount - rejectedCount;
+  document.querySelector(".available-jobs").innerText = availableJobs;
+}
+
 // accessing every card data and showing on other tab using event delegation and bubbling
-document
-  .querySelector(".job-cards-container")
-  .addEventListener("click", function (event) {
-    // for interview
-    if (event.target.classList.contains("interview-btn")) {
-      // take the card data
-      const card = event.target.closest(".card");
-      //   changing the status
-      card.querySelector(".status-btn").innerText = "INTERVIEW";
-      card.style.display = "none";
-      const cardDataCopy = document.createElement("div");
-      cardDataCopy.classList.add("card");
-      cardDataCopy.innerHTML = card.innerHTML;
-      document.querySelector(".interview-tab").append(cardDataCopy);
+document.querySelector("main").addEventListener("click", function (event) {
+  // for interview
+  if (event.target.classList.contains("interview-btn")) {
+    // take the card data
+    const card = event.target.closest(".card");
+    //   current status
+    const currentStatus = card.querySelector(".status-btn").innerText;
 
-      //   counting
-      document.querySelector(".interview-count").innerText = ++interviewCount;
-
-      // available jobs count
-      const availableJobs =
-        parseInt(totalJobCount) -
-        parseInt(interviewCount) -
-        parseInt(rejectedCount);
-      document.querySelector(".available-jobs").innerText = availableJobs;
-    }
-    // for rejected
-    if (event.target.classList.contains("rejected-btn")) {
-      // take the card data
-      const card = event.target.closest(".card");
-      //   changing the status
-      card.querySelector(".status-btn").innerText = "REJECTED";
-      card.style.display = "none";
-      const cardDataCopy = document.createElement("div");
-      cardDataCopy.classList.add("card");
-      cardDataCopy.innerHTML = card.innerHTML;
-      document.querySelector(".rejected-tab").append(cardDataCopy);
-
-      //   counting
-      document.querySelector(".rejected-count").innerText = ++rejectedCount;
-
-      // available jobs count
-      const availableJobs =
-        parseInt(totalJobCount) -
-        parseInt(interviewCount) -
-        parseInt(rejectedCount);
-      document.querySelector(".available-jobs").innerText = availableJobs;
+    // if already exist
+    if (currentStatus === "INTERVIEW") {
+      alert("Already marked as Interview");
+      return;
     }
 
-    // delete btn functionality
-    if (event.target.classList.contains("svg")) {
-      const parentCard = event.target.closest(".card");
-      parentCard.style.display = "none";
-
-      //   rest total
-      --totalJobCount;
-      document.querySelector(".total-count").innerText = totalJobCount;
+    // If the interview btn click coming from rejected tab
+    if (currentStatus === "REJECTED") {
+      rejectedCount--;
+      document.querySelector(".rejected-count").innerText = rejectedCount;
     }
+
+    // changing current status
+    card.querySelector(".status-btn").innerText = "INTERVIEW";
+
+    card.style.display = "none";
+    const cardDataCopy = document.createElement("div");
+    cardDataCopy.classList.add("card");
+    cardDataCopy.innerHTML = card.innerHTML;
+    document.querySelector(".interview-tab").append(cardDataCopy);
+
+    //   counting
+    document.querySelector(".interview-count").innerText = ++interviewCount;
 
     // available jobs count
-    const availableJobs =
-      parseInt(totalJobCount) -
-      parseInt(interviewCount) -
-      parseInt(rejectedCount);
-    document.querySelector(".available-jobs").innerText = availableJobs;
-  });
+    updateAvailableJobsCount();
+  }
+
+  // for rejected
+  if (event.target.classList.contains("rejected-btn")) {
+    // take the card data
+    const card = event.target.closest(".card");
+
+    // current status
+    const currentStatus = card.querySelector(".status-btn").innerText;
+
+    // if it already exist
+    if (currentStatus === "REJECTED") {
+      alert("Already marked as Rejected");
+      return;
+    }
+
+    // If the rejected btn click coming from interview tab
+    if (currentStatus === "INTERVIEW") {
+      interviewCount--;
+      document.querySelector(".interview-count").innerText = interviewCount;
+    }
+
+    //   changing the status
+    card.querySelector(".status-btn").innerText = "REJECTED";
+    card.style.display = "none";
+    const cardDataCopy = document.createElement("div");
+    cardDataCopy.classList.add("card");
+    cardDataCopy.innerHTML = card.innerHTML;
+    document.querySelector(".rejected-tab").append(cardDataCopy);
+
+    //   counting
+    document.querySelector(".rejected-count").innerText = ++rejectedCount;
+
+    // available jobs count
+    updateAvailableJobsCount();
+  }
+
+  // delete btn functionality
+  if (event.target.classList.contains("svg")) {
+    const parentCard = event.target.closest(".card");
+    parentCard.style.display = "none";
+
+    //   rest total
+    --totalJobCount;
+    document.querySelector(".total-count").innerText = totalJobCount;
+  }
+
+  // available jobs count
+  const availableJobs =
+    parseInt(totalJobCount) -
+    parseInt(interviewCount) -
+    parseInt(rejectedCount);
+  document.querySelector(".available-jobs").innerText = availableJobs;
+});
 
 // toggling feature and btn active color features
 function toggleTab(tabClassName, tabBtnClassName) {
