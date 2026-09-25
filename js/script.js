@@ -98,19 +98,15 @@ document.querySelector("main").addEventListener("click", function (event) {
       rejectedCount--;
       document.querySelector(".rejected-count").innerText = rejectedCount;
     }
-    // parentCard.style.display = "none";
-    parentCard.remove();
 
+    parentCard.remove();
     //   rest total
     --totalJobCount;
     document.querySelector(".total-count").innerText = totalJobCount;
   }
 
   // available jobs count
-  const availableJobs =
-    parseInt(totalJobCount) -
-    parseInt(interviewCount) -
-    parseInt(rejectedCount);
+  const availableJobs = totalJobCount - interviewCount - rejectedCount;
   document.querySelector(".available-jobs").innerText = availableJobs;
 });
 
