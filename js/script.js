@@ -88,7 +88,18 @@ document.querySelector("main").addEventListener("click", function (event) {
   // delete btn functionality
   if (event.target.classList.contains("svg")) {
     const parentCard = event.target.closest(".card");
-    parentCard.style.display = "none";
+    const cardStatus = parentCard.querySelector(".status-btn").innerText;
+    if (cardStatus === "INTERVIEW") {
+      interviewCount--;
+      document.querySelector(".interview-count").innerText = interviewCount;
+    }
+
+    if (cardStatus === "REJECTED") {
+      rejectedCount--;
+      document.querySelector(".rejected-count").innerText = rejectedCount;
+    }
+    // parentCard.style.display = "none";
+    parentCard.remove();
 
     //   rest total
     --totalJobCount;
