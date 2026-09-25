@@ -28,8 +28,8 @@
     <hr class="container" />
 
     <main>
-      <!-- available job section -->
-      <section class="job-section container">
+      <!-- job header title and toggling btn -->
+      <section class="container">
         <!-- job header -->
         <div class="job-header">
           <h3 class="black">Available Jobs</h3>
@@ -38,15 +38,18 @@
 
         <!-- job btn -->
         <div class="job-btn-container">
-          <button class="btn active-btn">All</button>
-          <button class="btn" id="interview">Interview</button>
-          <button class="btn">Rejected</button>
+          <button class="btn active-btn all-tab-btn job-btn">All</button>
+          <button class="btn interview-tab-btn job-btn">Interview</button>
+          <button class="btn rejected-tab-btn job-btn">Rejected</button>
         </div>
+      </section>
 
+      <!-- all job tab -->
+      <section class="all-tab container tab">
         <!--  all job cards -->
         <div class="job-cards-container">
           <!-- card1 -->
-          <div class="card">
+          <div class="card" id="card1">
             <div class="job-title">
               <div>
                 <h4 class="black">Mobile First Corp</h4>
@@ -82,7 +85,9 @@
               </p>
             </div>
             <div>
-              <button class="btn interview-btn">INTERVIEW</button>
+              <button class="btn interview-btn interview-btn1">
+                INTERVIEW
+              </button>
               <button class="btn rejected-btn">REJECTED</button>
             </div>
           </div>
@@ -387,6 +392,16 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <!-- interview-tab -->
+      <section class="interview-tab container tab" style="display: none">
+        <p>interview</p>
+      </section>
+
+      <!-- rejected-tab -->
+      <section class="rejected-tab container tab" style="display: none">
+        <p>rejected</p>
       </section>
     </main>
     <!-- links with js -->

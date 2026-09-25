@@ -69,6 +69,7 @@ hr {
   align-items: center;
   margin-block: 1rem;
 }
+/* this active btn style would be change when toggling */
 .active-btn {
   background-color: #3b82f6;
   color: white;
