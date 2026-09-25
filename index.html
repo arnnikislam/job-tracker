@@ -7,27 +7,388 @@
     <title>Job Tracker</title>
   </head>
   <body class="roboto-normal bg-color">
-
     <!-- header section -->
     <header class="header container">
       <h2 class="black">Job Application Tracker</h2>
       <div class="header-box-container">
         <div class="header-box">
-            <p>Total</p>
-            <h3 class="black">0</h3>
+          <p>Total</p>
+          <h3 class="black">0</h3>
         </div>
         <div class="header-box">
-            <p>Interview</p>
-            <h3 class="green">0</h3>
+          <p>Interview</p>
+          <h3 class="green">0</h3>
         </div>
         <div class="header-box">
-            <p>Rejected</p>
-            <h3 class="red">0</h3>
+          <p>Rejected</p>
+          <h3 class="red">0</h3>
         </div>
       </div>
-    </header> <hr class="container">
+    </header>
+    <hr class="container" />
 
+    <main>
+      <!-- available job section -->
+      <section class="job-section container">
+        <!-- job header -->
+        <div class="job-header">
+          <h3 class="black">Available Jobs</h3>
+          <p><span>8</span> Jobs</p>
+        </div>
 
+        <!-- job btn -->
+        <div class="job-btn-container">
+          <button class="btn active-btn">All</button>
+          <button class="btn" id="interview">Interview</button>
+          <button class="btn">Rejected</button>
+        </div>
+
+        <!--  all job cards -->
+        <div class="job-cards-container">
+          <!-- card1 -->
+          <div class="card">
+            <div class="job-title">
+              <div>
+                <h4 class="black">Mobile First Corp</h4>
+                <p class="gray">React Native Developer</p>
+              </div>
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-trash preview-icon svg"
+                >
+                  <path d="M10 11v6" />
+                  <path d="M14 11v6" />
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                  <path d="M3 6h18" />
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+              </div>
+            </div>
+            <p class="gray">Remote • Full-time • $130,000 - $175,000</p>
+            <div>
+              <button class="btn status-btn">NOT APPLIED</button>
+              <p>
+                Build cross-platform mobile applications using React Native.
+                Work on products used by millions of users worldwide.
+              </p>
+            </div>
+            <div>
+              <button class="btn interview-btn">INTERVIEW</button>
+              <button class="btn rejected-btn">REJECTED</button>
+            </div>
+          </div>
+
+          <!-- card2 -->
+          <div class="card">
+            <div class="job-title">
+              <div>
+                <h4 class="black">WebFlow Agency</h4>
+                <p class="gray">Web Designer & Developer</p>
+              </div>
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-trash preview-icon svg"
+                >
+                  <path d="M10 11v6" />
+                  <path d="M14 11v6" />
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                  <path d="M3 6h18" />
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+              </div>
+            </div>
+            <p class="gray">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
+            <div>
+              <button class="btn status-btn">NOT APPLIED</button>
+              <p>
+                Create stunning web experiences for high-profile clients. Must
+                have portfolio and experience with modern web design trends.
+              </p>
+            </div>
+            <div>
+              <button class="btn interview-btn">INTERVIEW</button>
+              <button class="btn rejected-btn">REJECTED</button>
+            </div>
+          </div>
+
+          <!-- card3 -->
+          <div class="card">
+            <div class="job-title">
+              <div>
+                <h4 class="black">DataViz Solutions</h4>
+                <p class="gray">Data Visualization Specialist</p>
+              </div>
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-trash preview-icon svg"
+                >
+                  <path d="M10 11v6" />
+                  <path d="M14 11v6" />
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                  <path d="M3 6h18" />
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+              </div>
+            </div>
+            <p class="gray">Boston, MA • Full-time • $125,000 - $165,000</p>
+            <div>
+              <button class="btn status-btn">NOT APPLIED</button>
+              <p>
+                Transform complex data into compelling visualizations. Required
+                skills: D3.js, React, and strong analytical thinking.
+              </p>
+            </div>
+            <div>
+              <button class="btn interview-btn">INTERVIEW</button>
+              <button class="btn rejected-btn">REJECTED</button>
+            </div>
+          </div>
+
+          <!-- card4 -->
+          <div class="card">
+            <div class="job-title">
+              <div>
+                <h4 class="black">CloudFirst Inc</h4>
+                <p class="gray">Backend Developer</p>
+              </div>
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-trash preview-icon svg"
+                >
+                  <path d="M10 11v6" />
+                  <path d="M14 11v6" />
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                  <path d="M3 6h18" />
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+              </div>
+            </div>
+            <p class="gray">Seattle, WA • Full-time • $140,000 - $190,000</p>
+            <div>
+              <button class="btn status-btn">NOT APPLIED</button>
+              <p>
+                Design and maintain scalable backend systems using Python and
+                AWS. Work with modern DevOps practices and cloud infrastructure.
+              </p>
+            </div>
+            <div>
+              <button class="btn interview-btn">INTERVIEW</button>
+              <button class="btn rejected-btn">REJECTED</button>
+            </div>
+          </div>
+
+          <!-- card5 -->
+          <div class="card">
+            <div class="job-title">
+              <div>
+                <h4 class="black">Innovation Labs</h4>
+                <p class="gray">UI/UX Engineer</p>
+              </div>
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-trash preview-icon svg"
+                >
+                  <path d="M10 11v6" />
+                  <path d="M14 11v6" />
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                  <path d="M3 6h18" />
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+              </div>
+            </div>
+            <p class="gray">Austin, TX • Full-time • $110,000 - $150,000</p>
+            <div>
+              <button class="btn status-btn">NOT APPLIED</button>
+              <p>
+                Create beautiful and functional user interfaces for our suite of
+                products. Strong design skills and frontend development
+                expertise required.
+              </p>
+            </div>
+            <div>
+              <button class="btn interview-btn">INTERVIEW</button>
+              <button class="btn rejected-btn">REJECTED</button>
+            </div>
+          </div>
+
+          <!-- card6 -->
+          <div class="card">
+            <div class="job-title">
+              <div>
+                <h4 class="black">MegaCorp Solutions</h4>
+                <p class="gray">JavaScript Developer</p>
+              </div>
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-trash preview-icon svg"
+                >
+                  <path d="M10 11v6" />
+                  <path d="M14 11v6" />
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                  <path d="M3 6h18" />
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+              </div>
+            </div>
+            <p class="gray">New York, NY • Full-time • $130,000 - $170,00</p>
+            <div>
+              <button class="btn status-btn">NOT APPLIED</button>
+              <p>
+                Build enterprise applications with JavaScript and modern
+                frameworks. We offer competitive compensation, health insurance,
+                and professional development opportunities.
+              </p>
+            </div>
+            <div>
+              <button class="btn interview-btn">INTERVIEW</button>
+              <button class="btn rejected-btn">REJECTED</button>
+            </div>
+          </div>
+
+          <!-- card7 -->
+          <div class="card">
+            <div class="job-title">
+              <div>
+                <h4 class="black">StartupXYZ</h4>
+                <p class="gray">Full Stack Engineer</p>
+              </div>
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-trash preview-icon svg"
+                >
+                  <path d="M10 11v6" />
+                  <path d="M14 11v6" />
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                  <path d="M3 6h18" />
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+              </div>
+            </div>
+            <p class="gray">Remote • Full-time • $120,000 - $160,000</p>
+            <div>
+              <button class="btn status-btn">NOT APPLIED</button>
+              <p>
+                Join our fast-growing startup and work on our core platform.
+                Experience with Node.js and React required. Great benefits and
+                equity package included.
+              </p>
+            </div>
+            <div>
+              <button class="btn interview-btn">INTERVIEW</button>
+              <button class="btn rejected-btn">REJECTED</button>
+            </div>
+          </div>
+
+          <!-- card8 -->
+          <div class="card">
+            <div class="job-title">
+              <div>
+                <h4 class="black">TechCorp Industries</h4>
+                <p class="gray">Senior Frontend Developer</p>
+              </div>
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-trash preview-icon svg"
+                >
+                  <path d="M10 11v6" />
+                  <path d="M14 11v6" />
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                  <path d="M3 6h18" />
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+              </div>
+            </div>
+            <p class="gray">
+              San Francisco, CA • Full-time • $130,000 - $175,000
+            </p>
+            <div>
+              <button class="btn status-btn">NOT APPLIED</button>
+              <p>
+                We are looking for an experienced Frontend Developer to build
+                scalable web applications using React and TypeScript. You will
+                work with a talented team on cutting-edge projects.
+              </p>
+            </div>
+            <div>
+              <button class="btn interview-btn">INTERVIEW</button>
+              <button class="btn rejected-btn">REJECTED</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
     <!-- links with js -->
     <script src="./js/script.js"></script>
   </body>
