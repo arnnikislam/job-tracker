@@ -13,15 +13,15 @@
       <div class="header-box-container">
         <div class="header-box">
           <p>Total</p>
-          <h3 class="black">0</h3>
+          <h3 class="black total-count">0</h3>
         </div>
         <div class="header-box">
           <p>Interview</p>
-          <h3 class="green">0</h3>
+          <h3 class="green interview-count">0</h3>
         </div>
         <div class="header-box">
           <p>Rejected</p>
-          <h3 class="red">0</h3>
+          <h3 class="red rejected-count">0</h3>
         </div>
       </div>
     </header>
@@ -33,7 +33,7 @@
         <!-- job header -->
         <div class="job-header">
           <h3 class="black">Available Jobs</h3>
-          <p><span>8</span> Jobs</p>
+          <p><span class="available-jobs">8</span> Jobs</p>
         </div>
 
         <!-- job btn -->
@@ -49,7 +49,7 @@
         <!--  all job cards -->
         <div class="job-cards-container">
           <!-- card1 -->
-          <div class="card" id="card1">
+          <div class="card" id="card1" data-id="1">
             <div class="job-title">
               <div>
                 <h4 class="black">Mobile First Corp</h4>
@@ -88,12 +88,12 @@
               <button class="btn interview-btn interview-btn1">
                 INTERVIEW
               </button>
-              <button class="btn rejected-btn">REJECTED</button>
+              <button class="btn rejected-btn rejected-btn1">REJECTED</button>
             </div>
           </div>
 
           <!-- card2 -->
-          <div class="card">
+          <div class="card" data-id="2">
             <div class="job-title">
               <div>
                 <h4 class="black">WebFlow Agency</h4>
@@ -135,7 +135,7 @@
           </div>
 
           <!-- card3 -->
-          <div class="card">
+          <div class="card" data-id="3">
             <div class="job-title">
               <div>
                 <h4 class="black">DataViz Solutions</h4>
@@ -177,7 +177,7 @@
           </div>
 
           <!-- card4 -->
-          <div class="card">
+          <div class="card" data-id="4">
             <div class="job-title">
               <div>
                 <h4 class="black">CloudFirst Inc</h4>
@@ -219,7 +219,7 @@
           </div>
 
           <!-- card5 -->
-          <div class="card">
+          <div class="card" data-id="5">
             <div class="job-title">
               <div>
                 <h4 class="black">Innovation Labs</h4>
@@ -262,7 +262,7 @@
           </div>
 
           <!-- card6 -->
-          <div class="card">
+          <div class="card" data-id="6">
             <div class="job-title">
               <div>
                 <h4 class="black">MegaCorp Solutions</h4>
@@ -305,7 +305,7 @@
           </div>
 
           <!-- card7 -->
-          <div class="card">
+          <div class="card" data-id="7">
             <div class="job-title">
               <div>
                 <h4 class="black">StartupXYZ</h4>
@@ -348,7 +348,7 @@
           </div>
 
           <!-- card8 -->
-          <div class="card">
+          <div class="card" data-id="8">
             <div class="job-title">
               <div>
                 <h4 class="black">TechCorp Industries</h4>
@@ -394,15 +394,26 @@
         </div>
       </section>
 
-      <!-- interview-tab -->
-      <section class="interview-tab container tab" style="display: none">
-        <p>interview</p>
+      <!-- empty alert showing -->
+      <section class="alert-section" style="display: none">
+        <div class="container alert">
+          <img src="./resources/jobs.png" alt="" />
+          <h2 class="black">No jobs available</h2>
+          <h3>Check back soon for new job opportunities</h3>
+        </div>
       </section>
 
+      <!-- interview-tab -->
+      <section
+        class="interview-tab container tab"
+        style="display: none; margin-top: 1rem"
+      ></section>
+
       <!-- rejected-tab -->
-      <section class="rejected-tab container tab" style="display: none">
-        <p>rejected</p>
-      </section>
+      <section
+        class="rejected-tab container tab"
+        style="display: none; margin-top: 1rem"
+      ></section>
     </main>
     <!-- links with js -->
     <script src="./js/script.js"></script>

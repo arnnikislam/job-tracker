@@ -117,6 +117,23 @@ hr {
   padding-inline: 10px;
 }
 
+/* alert section */
+.alert {
+    width: 100%;
+    background-color: #ffffff;
+    height: 50vh;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #F1F2F4;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+
 /* responsive for mobile devices */
 @media (max-width: 576px) {
   /* shared styles */
